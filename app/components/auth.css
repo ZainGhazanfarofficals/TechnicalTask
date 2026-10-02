@@ -1,0 +1,138 @@
+/* ---------- Layout ---------- */
+.auth {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+}
+
+@media (min-width: 960px) {
+  .auth {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  }
+}
+
+/* ---------- Brand panel (dark editorial) ---------- */
+.auth__brand {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-xxl);
+  background: var(--surface-dark);
+  color: var(--on-dark);
+}
+
+@media (min-width: 960px) {
+  .auth__brand {
+    display: flex;
+  }
+}
+
+.auth__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.auth__logo-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  background: var(--primary);
+}
+
+.auth__headline {
+  margin: 0 0 var(--space-base);
+  max-width: 14ch;
+  font-size: clamp(40px, 4.4vw, 64px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.auth__lede {
+  margin: 0;
+  max-width: 38ch;
+  color: var(--on-dark-soft);
+}
+
+.auth__proof {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  width: fit-content;
+  padding: var(--space-base) var(--space-lg);
+  border-radius: var(--radius-lg);
+  background: var(--surface-dark-elevated);
+}
+
+.auth__proof-value {
+  font-family: var(--font-mono-stack), monospace;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--semantic-up);
+}
+
+.auth__proof-label {
+  font-size: 14px;
+  color: var(--on-dark-soft);
+}
+
+/* ---------- Form panel ---------- */
+.auth__main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl) var(--space-base);
+  background: var(--canvas);
+}
+
+.auth__card {
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth__mobile-logo {
+  margin-bottom: var(--space-xl);
+  color: var(--ink);
+}
+
+@media (min-width: 960px) {
+  .auth__mobile-logo {
+    display: none;
+  }
+}
+
+.auth__title {
+  margin: 0 0 var(--space-xs);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.auth__subtitle {
+  margin: 0 0 var(--space-lg);
+  color: var(--body);
+}
+
+/* ---------- Form wrapper ---------- */
+.seg + .seg,
+.seg + .auth__form {
+  margin-top: var(--space-base);
+}
+
+.auth__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-base);
+  margin-top: var(--space-lg);
+}
+
+.auth__switch {
+  margin: var(--space-lg) 0 0;
+  text-align: center;
+  font-size: 14px;
+  color: var(--body);
+}

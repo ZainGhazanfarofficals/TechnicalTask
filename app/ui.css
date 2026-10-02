@@ -1,0 +1,266 @@
+/* Shared UI primitives: segmented control, fields, buttons, notices */
+/* ---------- Segmented controls ---------- */
+.seg {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: var(--space-xxs);
+  padding: var(--space-xxs);
+  border-radius: var(--radius-pill);
+  background: var(--surface-strong);
+}
+
+.seg__btn {
+  height: 40px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--body);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.seg__btn:hover {
+  color: var(--ink);
+}
+
+.seg__btn[aria-selected="true"] {
+  background: var(--canvas);
+  color: var(--ink);
+}
+
+.seg--tabs {
+  background: transparent;
+  padding: 0;
+  gap: 0;
+  border-radius: 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.seg--tabs .seg__btn {
+  height: 44px;
+  border-radius: 0;
+  margin-bottom: -1px;
+  border-bottom: 2px solid transparent;
+}
+
+.seg--tabs .seg__btn[aria-selected="true"] {
+  background: transparent;
+  border-bottom-color: var(--primary);
+}
+
+/* ---------- Fields ---------- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field__label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.field__input {
+  width: 100%;
+  height: 48px;
+  padding: 14px 16px;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  background: var(--canvas);
+  color: var(--ink);
+  font: inherit;
+  transition: border-color 0.15s;
+}
+
+.field__input::placeholder {
+  color: var(--muted-soft);
+}
+
+.field__input:hover {
+  border-color: var(--muted-soft);
+}
+
+.field__input:focus {
+  outline: none;
+  border: 2px solid var(--primary);
+  padding: 13px 15px;
+}
+
+.field__input[aria-invalid="true"],
+.field__input[aria-invalid="true"]:hover,
+.field__input[aria-invalid="true"]:focus {
+  border: 2px solid var(--semantic-down);
+  padding: 13px 15px;
+}
+
+.field__input--toggle[aria-invalid="true"],
+.field__input--toggle[aria-invalid="true"]:focus {
+  padding-right: 47px;
+}
+
+.field__error {
+  margin: 0;
+  font-size: 13px;
+  color: var(--semantic-down);
+}
+
+.field__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.link {
+  display: inline-block;
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: var(--primary-active);
+  text-decoration: underline;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 12px 20px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.15;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn--primary {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+.btn--primary:hover,
+.btn--primary:active {
+  background: var(--primary-active);
+}
+
+.btn--primary:disabled {
+  background: var(--primary-disabled);
+  cursor: not-allowed;
+}
+
+.btn:focus-visible,
+.seg__btn:focus-visible,
+.link:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ---------- Notices ---------- */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-strong);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.notice {
+  margin-top: var(--space-base);
+  padding: var(--space-sm) var(--space-base);
+  border-radius: var(--radius-md);
+  background: var(--surface-soft);
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.notice--success {
+  border-left: 3px solid var(--semantic-up);
+}
+
+
+.notice--error {
+  border-left: 3px solid var(--semantic-down);
+  margin-top: 0;
+}
+
+.field__input:disabled {
+  background: var(--surface-soft);
+  cursor: not-allowed;
+}
+
+textarea.field__input {
+  height: auto;
+  min-height: 140px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+select.field__input {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+    linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position: calc(100% - 20px) 21px, calc(100% - 15px) 21px;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.btn--secondary {
+  background: var(--surface-strong);
+  color: var(--ink);
+}
+
+.btn--secondary:hover {
+  background: var(--hairline);
+}
+
+.btn--danger {
+  background: var(--semantic-down);
+  color: #fff;
+}
+
+.btn--danger:hover {
+  filter: brightness(0.9);
+}
+
+.btn--sm {
+  height: 36px;
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* password visibility toggle */
+.field__wrap { position: relative; }
+.field__input--toggle { padding-right: 48px; }
+.field__input--toggle:focus { padding-right: 47px; }
+.field__toggle {
+  position: absolute; top: 0; right: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 48px; height: 48px; border: 0; background: transparent;
+  color: var(--muted); cursor: pointer; border-radius: var(--radius-md);
+}
+.field__toggle:hover { color: var(--ink); }
+.field__toggle:focus-visible { outline: 2px solid var(--primary); outline-offset: -2px; }
